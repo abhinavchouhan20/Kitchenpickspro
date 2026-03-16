@@ -5,30 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>KitchenPicksPro — Best Kitchen Products & Reviews</title>
   <meta name="description" content="Honest kitchen product reviews, buying guides and recommendations. Find the best kitchen gadgets, appliances and tools on Amazon."/>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <style>
     :root {
-      --bg: #faf8f4;
-      --surface: #f3efe8;
-      --card: #ffffff;
-      --accent: #c84b2f;
-      --accent2: #2d6a4f;
-      --text: #1a1612;
-      --muted: #8a7e72;
-      --border: #e5dfd5;
-      --warm: #f0e8d8;
+      --bg: #faf8f4; --card: #ffffff; --accent: #c84b2f; --accent2: #2d6a4f;
+      --text: #1a1612; --muted: #8a7e72; --border: #e5dfd5; --warm: #f0e8d8; --gold: #f0a500;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: var(--bg); color: var(--text); font-family: 'Jost', sans-serif; font-weight: 300; min-height: 100vh; overflow-x: hidden; }
+    body { background: var(--bg); color: var(--text); font-family: 'Jost', sans-serif; font-weight: 300; overflow-x: hidden; }
     .topbar { background: var(--accent); color: #fff; text-align: center; padding: 8px; font-size: 0.78rem; letter-spacing: 0.1em; font-weight: 500; }
     header { border-bottom: 1px solid var(--border); padding: 0 5vw; display: flex; align-items: center; justify-content: space-between; height: 72px; background: var(--card); position: sticky; top: 0; z-index: 100; }
-    .logo { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 700; letter-spacing: -0.02em; color: var(--text); text-decoration: none; display: flex; align-items: center; gap: 0.4rem; }
+    .logo { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 700; color: var(--text); text-decoration: none; }
     .logo span { color: var(--accent); }
     nav a { color: var(--muted); text-decoration: none; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; margin-left: 2rem; transition: color 0.2s; }
     nav a:hover { color: var(--accent); }
-    .hero { background: var(--warm); padding: 80px 5vw; text-align: center; border-bottom: 1px solid var(--border); position: relative; overflow: hidden; }
-    .hero::before { content: '🍳'; position: absolute; font-size: 18rem; opacity: 0.04; top: -3rem; left: -3rem; pointer-events: none; }
-    .hero::after { content: '☕'; position: absolute; font-size: 14rem; opacity: 0.05; bottom: -2rem; right: 2rem; pointer-events: none; }
+    .hero { background: var(--warm); padding: 80px 5vw; text-align: center; border-bottom: 1px solid var(--border); }
     .hero-tag { display: inline-block; background: var(--accent); color: #fff; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; padding: 5px 14px; border-radius: 2px; margin-bottom: 1.5rem; }
     .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 700; line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 1.2rem; max-width: 700px; margin-left: auto; margin-right: auto; }
     .hero h1 em { font-style: italic; color: var(--accent); }
@@ -37,12 +28,13 @@
     .btn { display: inline-block; background: var(--accent); color: #fff; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 14px 28px; text-decoration: none; border-radius: 2px; border: none; cursor: pointer; transition: background 0.2s, transform 0.2s; font-family: 'Jost', sans-serif; }
     .btn:hover { background: #a83520; transform: translateY(-2px); }
     .btn-outline { background: transparent; color: var(--text); border: 1.5px solid var(--border); }
-    .btn-outline:hover { background: var(--surface); border-color: var(--text); }
+    .btn-outline:hover { background: var(--warm); }
+    .btn-sm { padding: 10px 20px; font-size: 0.75rem; }
     .stats { background: var(--text); padding: 1.5rem 5vw; display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap; }
     .stat { text-align: center; }
     .stat .num { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; color: #fff; display: block; }
     .stat .label { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: #888; }
-    .categories { padding: 60px 5vw; max-width: 1200px; margin: 0 auto; }
+    .section { padding: 60px 5vw; max-width: 1200px; margin: 0 auto; }
     .section-label { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; }
     .section-label span { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
     .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
@@ -52,39 +44,20 @@
     .cat-card .emoji { font-size: 2rem; margin-bottom: 0.6rem; display: block; }
     .cat-card h3 { font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; }
     .cat-card p { font-size: 0.75rem; color: var(--muted); }
-    .featured { padding: 0 5vw 60px; max-width: 1200px; margin: 0 auto; }
-    .featured-card { background: var(--card); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; display: grid; grid-template-columns: 1.2fr 1fr; cursor: pointer; transition: box-shadow 0.2s; }
-    .featured-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.1); }
-    .featured-img { background: linear-gradient(135deg, #fdf0e8, #f5ddc8); min-height: 380px; display: flex; align-items: center; justify-content: center; font-size: 8rem; position: relative; }
-    .featured-badge { position: absolute; top: 1.5rem; left: 1.5rem; background: var(--accent); color: #fff; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 12px; border-radius: 2px; }
-    .featured-body { padding: 3rem; display: flex; flex-direction: column; justify-content: center; }
-    .post-cat { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent2); margin-bottom: 1rem; }
-    .featured-body h2 { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 1rem; }
-    .featured-body p { color: var(--muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.5rem; }
-    .stars { color: #f0a500; font-size: 0.85rem; margin-bottom: 0.5rem; }
-    .post-meta { display: flex; align-items: center; gap: 0.8rem; font-size: 0.78rem; color: var(--muted); margin-bottom: 1.5rem; }
-    .dot { width: 3px; height: 3px; background: var(--muted); border-radius: 50%; }
-    .read-more { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--accent); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; transition: gap 0.2s; }
-    .read-more:hover { gap: 0.9rem; }
-    .articles { padding: 0 5vw 60px; max-width: 1200px; margin: 0 auto; }
-    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-    .card { background: var(--card); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; cursor: pointer; transition: all 0.2s; }
-    .card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); border-color: var(--accent); }
-    .card-img { height: 170px; display: flex; align-items: center; justify-content: center; font-size: 3.5rem; background: var(--warm); position: relative; }
+    /* ARTICLE CARDS */
+    .articles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .article-card { background: var(--card); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; cursor: pointer; transition: all 0.2s; }
+    .article-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); border-color: var(--accent); }
+    .article-card .card-img { height: 160px; display: flex; align-items: center; justify-content: center; font-size: 3.5rem; background: var(--warm); position: relative; }
     .card-badge { position: absolute; top: 0.8rem; right: 0.8rem; background: var(--accent2); color: #fff; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 8px; border-radius: 2px; }
-    .card-body { padding: 1.5rem; }
-    .card-body .post-cat { margin-bottom: 0.5rem; }
-    .card-body h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 700; line-height: 1.25; letter-spacing: -0.01em; margin-bottom: 0.7rem; }
-    .card-body p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; margin-bottom: 1rem; }
+    .article-card .card-body { padding: 1.5rem; }
+    .post-cat { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent2); margin-bottom: 0.5rem; }
+    .article-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 700; line-height: 1.25; margin-bottom: 0.6rem; }
+    .article-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; margin-bottom: 1rem; }
     .card-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 0.8rem; border-top: 1px solid var(--border); }
     .card-footer span { font-size: 0.75rem; color: var(--muted); }
-    .card-footer .arrow { color: var(--accent); font-size: 1rem; }
-    .picks-inner { background: var(--accent); border-radius: 4px; padding: 3rem 4rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
-    .picks-inner h2 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; color: #fff; letter-spacing: -0.02em; max-width: 400px; }
-    .picks-inner h2 em { font-style: italic; opacity: 0.8; }
-    .picks-products { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .pick-chip { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); color: #fff; padding: 8px 16px; border-radius: 2px; font-size: 0.82rem; font-weight: 500; cursor: pointer; transition: background 0.2s; }
-    .pick-chip:hover { background: rgba(255,255,255,0.25); }
+    .card-footer .arrow { color: var(--accent); }
+    /* NEWSLETTER */
     .newsletter-box { background: var(--warm); border: 1px solid var(--border); border-radius: 4px; padding: 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
     .newsletter-box h2 { font-family: 'Cormorant Garamond', serif; font-size: 2.4rem; font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 0.8rem; }
     .newsletter-box p { color: var(--muted); font-size: 0.95rem; line-height: 1.7; }
@@ -92,39 +65,68 @@
     .email-form input { background: var(--card); border: 1.5px solid var(--border); color: var(--text); padding: 14px 18px; font-family: 'Jost', sans-serif; font-size: 0.9rem; border-radius: 2px; outline: none; transition: border-color 0.2s; }
     .email-form input:focus { border-color: var(--accent); }
     .email-form input::placeholder { color: var(--muted); }
-    .email-note { font-size: 0.75rem; color: var(--muted); }
+    /* FOOTER */
     footer { background: var(--text); color: #888; padding: 3rem 5vw; }
     .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; padding-bottom: 2rem; border-bottom: 1px solid #2a2a2a; margin-bottom: 1.5rem; }
     .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 700; color: #fff; margin-bottom: 0.8rem; display: block; text-decoration: none; }
     .footer-logo span { color: var(--accent); }
-    footer p { font-size: 0.85rem; line-height: 1.7; }
     .footer-col h4 { color: #fff; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1rem; }
     .footer-col a { display: block; color: #888; text-decoration: none; font-size: 0.85rem; margin-bottom: 0.5rem; transition: color 0.2s; }
     .footer-col a:hover { color: var(--accent); }
     .footer-bottom { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; font-size: 0.78rem; flex-wrap: wrap; gap: 1rem; }
+    /* MODAL */
     .modal-overlay { position: fixed; inset: 0; background: rgba(26,22,18,0.88); z-index: 999; display: none; align-items: center; justify-content: center; padding: 2rem; backdrop-filter: blur(8px); }
     .modal-overlay.open { display: flex; }
-    .modal { background: var(--card); border: 1px solid var(--border); border-radius: 4px; max-width: 720px; width: 100%; max-height: 85vh; overflow-y: auto; position: relative; animation: modalIn 0.25s ease; }
+    .modal { background: var(--card); border: 1px solid var(--border); border-radius: 4px; max-width: 780px; width: 100%; max-height: 90vh; overflow-y: auto; position: relative; animation: modalIn 0.25s ease; }
     @keyframes modalIn { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
-    .modal-header { background: var(--warm); padding: 3rem 3rem 2rem; border-bottom: 1px solid var(--border); }
-    .modal-header h2 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 1rem; }
-    .modal-meta { display: flex; gap: 1rem; font-size: 0.78rem; color: var(--muted); }
-    .modal-body { padding: 2.5rem 3rem; }
-    .modal-body p { color: #555; line-height: 1.85; font-size: 0.95rem; margin-bottom: 1.2rem; }
-    .modal-body h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 700; margin: 2rem 0 0.8rem; color: var(--text); }
-    .product-card { background: var(--warm); border: 1px solid var(--border); border-radius: 4px; padding: 1.2rem 1.5rem; margin: 1.2rem 0; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
-    .product-info { flex: 1; }
-    .product-info .name { font-weight: 600; font-size: 0.95rem; color: var(--text); margin-bottom: 0.3rem; }
-    .product-info .desc { font-size: 0.82rem; color: var(--muted); }
-    .product-info .price { font-size: 0.85rem; color: var(--accent); font-weight: 600; margin-top: 0.3rem; }
-    .modal-close { position: absolute; top: 1rem; right: 1.2rem; background: none; border: none; color: var(--muted); font-size: 1.4rem; cursor: pointer; transition: color 0.2s; z-index: 10; }
+    .modal-close { position: absolute; top: 1rem; right: 1.2rem; background: none; border: none; color: var(--muted); font-size: 1.4rem; cursor: pointer; z-index: 10; }
     .modal-close:hover { color: var(--text); }
-    @media (max-width: 900px) { .cat-grid { grid-template-columns: repeat(3, 1fr); } .featured-card { grid-template-columns: 1fr; } .featured-img { min-height: 200px; } .grid { grid-template-columns: repeat(2, 1fr); } .newsletter-box { grid-template-columns: 1fr; } .footer-inner { grid-template-columns: 1fr; } .picks-inner { flex-direction: column; } }
-    @media (max-width: 600px) { .cat-grid { grid-template-columns: repeat(2, 1fr); } .grid { grid-template-columns: 1fr; } .stats { gap: 2rem; } nav { display: none; } }
+    .modal-header { background: var(--warm); padding: 2.5rem 3rem 2rem; border-bottom: 1px solid var(--border); }
+    .modal-header h2 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 0.5rem; }
+    .modal-meta { display: flex; gap: 1rem; font-size: 0.78rem; color: var(--muted); margin-top: 0.5rem; flex-wrap: wrap; align-items: center; }
+    .modal-stars { color: var(--gold); font-size: 1rem; }
+    .modal-body { padding: 2rem 3rem 3rem; }
+    .modal-body > p { color: #555; line-height: 1.85; font-size: 0.95rem; margin-bottom: 1.5rem; }
+    /* COMPARISON TABLE */
+    .comparison-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0 2rem; font-size: 0.85rem; }
+    .comparison-table th { background: var(--text); color: #fff; padding: 10px 14px; text-align: left; font-weight: 500; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; }
+    .comparison-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); color: #444; }
+    .comparison-table tr:nth-child(even) td { background: var(--warm); }
+    .comparison-table tr:hover td { background: #fdf0e8; }
+    .rank-badge { display: inline-block; width: 24px; height: 24px; border-radius: 50%; color: #fff; font-size: 0.72rem; font-weight: 600; text-align: center; line-height: 24px; }
+    .rank-1 { background: #f0a500; }
+    .rank-2 { background: #999; }
+    .rank-3 { background: #c87533; }
+    .best-for-tag { display: inline-block; background: var(--accent2); color: #fff; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 8px; border-radius: 2px; }
+    /* PRODUCT CARDS IN MODAL */
+    .product-review-card { border: 1px solid var(--border); border-radius: 4px; margin: 1.5rem 0; overflow: hidden; }
+    .product-review-header { background: var(--warm); padding: 1.2rem 1.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .product-review-header .left { display: flex; align-items: center; gap: 1rem; }
+    .product-rank { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; color: #fff; flex-shrink: 0; }
+    .product-review-header h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 700; margin-bottom: 0.2rem; }
+    .product-review-header .price { font-size: 0.85rem; color: var(--accent); font-weight: 600; }
+    .stars-row { color: var(--gold); font-size: 0.85rem; }
+    .product-review-body { padding: 1.5rem; }
+    .pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0; }
+    .pros, .cons { padding: 1rem; border-radius: 4px; }
+    .pros { background: #f0faf4; border: 1px solid #b8e0c8; }
+    .cons { background: #fff5f5; border: 1px solid #f0c0c0; }
+    .pros h4 { color: #2d6a4f; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.6rem; }
+    .cons h4 { color: #c84b2f; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.6rem; }
+    .pros li, .cons li { font-size: 0.83rem; color: #444; line-height: 1.7; margin-left: 1rem; }
+    .product-review-footer { padding: 1rem 1.5rem; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .verdict { font-size: 0.82rem; color: var(--muted); font-style: italic; }
+    .score-bar-wrap { margin: 0.8rem 0; }
+    .score-label { display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--muted); margin-bottom: 3px; }
+    .score-bar { height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
+    .score-fill { height: 100%; background: var(--accent); border-radius: 3px; transition: width 0.6s ease; }
+    .score-fill.green { background: var(--accent2); }
+    @media (max-width: 900px) { .cat-grid { grid-template-columns: repeat(3,1fr); } .articles-grid { grid-template-columns: repeat(2,1fr); } .newsletter-box { grid-template-columns: 1fr; } .footer-inner { grid-template-columns: 1fr; } .pros-cons { grid-template-columns: 1fr; } }
+    @media (max-width: 600px) { .cat-grid { grid-template-columns: repeat(2,1fr); } .articles-grid { grid-template-columns: 1fr; } nav { display: none; } .modal-body { padding: 1.5rem; } .modal-header { padding: 1.5rem; } }
   </style>
 </head>
 <body>
-<div class="topbar">🔥 New: Best Air Fryers of 2024 — Tested & Ranked</div>
+<div class="topbar">🔥 New Reviews: Best Air Fryers, Coffee Makers & More — Fully Updated 2024</div>
 <header>
   <a href="#" class="logo">🍳 KitchenPicks<span>Pro</span></a>
   <nav>
@@ -137,7 +139,7 @@
 <section class="hero">
   <span class="hero-tag">✦ Trusted Kitchen Reviews</span>
   <h1>Find the <em>best</em> kitchen products without the guesswork</h1>
-  <p>Honest reviews, tested picks, and buying guides for everything in your kitchen — so you only buy what's actually worth it.</p>
+  <p>In-depth reviews with star ratings, pros & cons, and honest recommendations — so you only buy what's actually worth it.</p>
   <div class="hero-btns">
     <a href="#articles" class="btn">Browse Reviews →</a>
     <a href="#categories" class="btn btn-outline">Shop by Category</a>
@@ -145,69 +147,43 @@
 </section>
 <div class="stats">
   <div class="stat"><span class="num">120+</span><span class="label">Products Reviewed</span></div>
-  <div class="stat"><span class="num">8</span><span class="label">Categories</span></div>
+  <div class="stat"><span class="num">★ 4.8</span><span class="label">Avg Review Score</span></div>
   <div class="stat"><span class="num">100%</span><span class="label">Honest Reviews</span></div>
   <div class="stat"><span class="num">Amazon</span><span class="label">Verified Links</span></div>
 </div>
-<section class="categories" id="categories">
+<section class="section" id="categories">
   <div class="section-label"><span>Shop by Category</span></div>
   <div class="cat-grid">
-    <div class="cat-card" onclick="openModal('airfryer')"><span class="emoji">🍟</span><h3>Air Fryers</h3><p>12 reviews</p></div>
-    <div class="cat-card" onclick="openModal('coffee')"><span class="emoji">☕</span><h3>Coffee Makers</h3><p>9 reviews</p></div>
-    <div class="cat-card" onclick="openModal('knives')"><span class="emoji">🔪</span><h3>Knives & Cutting</h3><p>8 reviews</p></div>
-    <div class="cat-card" onclick="openModal('storage')"><span class="emoji">📦</span><h3>Food Storage</h3><p>11 reviews</p></div>
-    <div class="cat-card" onclick="openModal('cleaning')"><span class="emoji">🧽</span><h3>Cleaning</h3><p>7 reviews</p></div>
+    <div class="cat-card" onclick="openModal('airfryer')"><span class="emoji">🍟</span><h3>Air Fryers</h3><p>3 reviews</p></div>
+    <div class="cat-card" onclick="openModal('coffee')"><span class="emoji">☕</span><h3>Coffee Makers</h3><p>3 reviews</p></div>
+    <div class="cat-card" onclick="openModal('knives')"><span class="emoji">🔪</span><h3>Knives</h3><p>3 reviews</p></div>
+    <div class="cat-card" onclick="openModal('storage')"><span class="emoji">📦</span><h3>Food Storage</h3><p>3 reviews</p></div>
+    <div class="cat-card" onclick="openModal('cleaning')"><span class="emoji">🧽</span><h3>Cleaning</h3><p>3 reviews</p></div>
   </div>
 </section>
-<section class="featured" id="articles">
-  <div class="section-label"><span>Featured Review</span></div>
-  <div class="featured-card" onclick="openModal('airfryer')">
-    <div class="featured-img">🍟<div class="featured-badge">Editor's Pick</div></div>
-    <div class="featured-body">
-      <div class="post-cat">Air Fryers · Buying Guide · 7 min read</div>
-      <h2>5 Best Air Fryers Under $100 — Tested & Ranked</h2>
-      <div class="stars">★★★★★</div>
-      <p>Air fryers are one of the most bought kitchen items on Amazon right now. But which one is actually worth your money? I tested 5 popular models so you don't have to.</p>
-      <div class="post-meta"><span>By Abhinav</span><div class="dot"></div><span>March 2024</span><div class="dot"></div><span>2.4k views</span></div>
-      <a class="read-more">Read Full Review →</a>
-    </div>
-  </div>
-</section>
-<section class="articles">
+<section class="section" id="articles">
   <div class="section-label"><span>Latest Reviews</span></div>
-  <div class="grid">
-    <div class="card" onclick="openModal('coffee')"><div class="card-img">☕<div class="card-badge">Popular</div></div><div class="card-body"><div class="post-cat">Coffee Makers · 5 min read</div><h3>Best Coffee Makers Under $50 for Home Use</h3><p>You don't need to spend a fortune for great coffee at home. These picks deliver every morning.</p><div class="card-footer"><span>March 2024</span><span class="arrow">→</span></div></div></div>
-    <div class="card" onclick="openModal('storage')"><div class="card-img">📦<div class="card-badge">Top Rated</div></div><div class="card-body"><div class="post-cat">Food Storage · 4 min read</div><h3>10 Best Food Storage Containers for Meal Prep</h3><p>Keep food fresh longer and save money on groceries with these Amazon bestsellers.</p><div class="card-footer"><span>February 2024</span><span class="arrow">→</span></div></div></div>
-    <div class="card" onclick="openModal('knives')"><div class="card-img">🔪</div><div class="card-body"><div class="post-cat">Knives · 6 min read</div><h3>Best Budget Knife Sets That Actually Stay Sharp</h3><p>A good knife makes cooking 10x easier. Here are the best sets under $40 on Amazon.</p><div class="card-footer"><span>February 2024</span><span class="arrow">→</span></div></div></div>
-    <div class="card" onclick="openModal('cleaning')"><div class="card-img">🧽<div class="card-badge">New</div></div><div class="card-body"><div class="post-cat">Cleaning · 3 min read</div><h3>Best Kitchen Cleaning Products on Amazon in 2024</h3><p>Keep your kitchen spotless without harsh chemicals. These are my monthly repurchases.</p><div class="card-footer"><span>January 2024</span><span class="arrow">→</span></div></div></div>
-    <div class="card" onclick="openModal('blender')"><div class="card-img">🥤</div><div class="card-body"><div class="post-cat">Appliances · 5 min read</div><h3>5 Best Blenders Under $50 — Smooth Every Time</h3><p>From smoothies to soups — these blenders punch way above their price tag.</p><div class="card-footer"><span>January 2024</span><span class="arrow">→</span></div></div></div>
-    <div class="card" onclick="openModal('gadgets')"><div class="card-img">🛠️<div class="card-badge">Trending</div></div><div class="card-body"><div class="post-cat">Gadgets · 4 min read</div><h3>10 Kitchen Gadgets Under $20 Worth Every Penny</h3><p>Small tools that make a huge difference. All under $20 and all available on Amazon.</p><div class="card-footer"><span>December 2023</span><span class="arrow">→</span></div></div></div>
+  <div class="articles-grid">
+    <div class="article-card" onclick="openModal('airfryer')"><div class="card-img">🍟<div class="card-badge">Editor's Pick</div></div><div class="card-body"><div class="post-cat">Air Fryers · 7 min read</div><h3>3 Best Air Fryers Under $100 — Tested & Ranked</h3><p>Full pros & cons, star ratings and comparison table for every model.</p><div class="card-footer"><span>★★★★★ · March 2024</span><span class="arrow">→</span></div></div></div>
+    <div class="article-card" onclick="openModal('coffee')"><div class="card-img">☕<div class="card-badge">Popular</div></div><div class="card-body"><div class="post-cat">Coffee Makers · 5 min read</div><h3>Best Coffee Makers Under $50 for Home Use</h3><p>Rated and ranked — find your perfect morning brew without overspending.</p><div class="card-footer"><span>★★★★☆ · March 2024</span><span class="arrow">→</span></div></div></div>
+    <div class="article-card" onclick="openModal('storage')"><div class="card-img">📦<div class="card-badge">Top Rated</div></div><div class="card-body"><div class="post-cat">Food Storage · 4 min read</div><h3>Best Food Storage Containers for Meal Prep</h3><p>Keep food fresh longer — detailed reviews with pros, cons & ratings.</p><div class="card-footer"><span>★★★★★ · February 2024</span><span class="arrow">→</span></div></div></div>
+    <div class="article-card" onclick="openModal('knives')"><div class="card-img">🔪</div><div class="card-body"><div class="post-cat">Knives · 6 min read</div><h3>Best Budget Knife Sets That Actually Stay Sharp</h3><p>Honest ratings, sharpness tests and full pros & cons for each set.</p><div class="card-footer"><span>★★★★☆ · February 2024</span><span class="arrow">→</span></div></div></div>
+    <div class="article-card" onclick="openModal('cleaning')"><div class="card-img">🧽<div class="card-badge">New</div></div><div class="card-body"><div class="post-cat">Cleaning · 3 min read</div><h3>Best Kitchen Cleaning Products on Amazon 2024</h3><p>Monthly repurchases reviewed — what actually works and what doesn't.</p><div class="card-footer"><span>★★★★★ · January 2024</span><span class="arrow">→</span></div></div></div>
+    <div class="article-card" onclick="openModal('blender')"><div class="card-img">🥤<div class="card-badge">Trending</div></div><div class="card-body"><div class="post-cat">Appliances · 5 min read</div><h3>5 Best Blenders Under $50 — Smooth Every Time</h3><p>Full comparison table, star ratings and best-for labels on every blender.</p><div class="card-footer"><span>★★★★☆ · January 2024</span><span class="arrow">→</span></div></div></div>
   </div>
 </section>
-<section style="padding: 0 5vw 60px; max-width:1200px; margin: 0 auto;">
-  <div class="picks-inner">
-    <h2>Monthly <em>Amazon</em> Kitchen Picks</h2>
-    <div class="picks-products">
-      <div class="pick-chip" onclick="openModal('airfryer')">🍟 Air Fryers</div>
-      <div class="pick-chip" onclick="openModal('coffee')">☕ Coffee</div>
-      <div class="pick-chip" onclick="openModal('cleaning')">🧽 Cleaning</div>
-      <div class="pick-chip" onclick="openModal('storage')">📦 Storage</div>
-      <div class="pick-chip" onclick="openModal('gadgets')">🛠️ Gadgets</div>
-    </div>
-  </div>
-</section>
-<section style="padding: 0 5vw 60px; max-width: 1200px; margin: 0 auto;" id="newsletter">
-  <div class="newsletter-box">
+<section class="section">
+  <div class="newsletter-box" id="newsletter">
     <div><h2>Get Weekly Kitchen Picks</h2><p>Every week I share the best deals, new reviews, and hidden gem products on Amazon. No spam — just useful picks straight to your inbox.</p></div>
-    <div><div class="email-form"><input type="email" placeholder="your@email.com" id="emailInput"/><button class="btn" onclick="subscribe()">Get Free Weekly Picks →</button><p class="email-note">🔒 No spam. Unsubscribe anytime.</p></div></div>
+    <div><div class="email-form"><input type="email" placeholder="your@email.com" id="emailInput"/><button class="btn" onclick="subscribe()">Get Free Weekly Picks →</button><p style="font-size:0.75rem;color:var(--muted);">🔒 No spam. Unsubscribe anytime.</p></div></div>
   </div>
 </section>
 <footer>
   <div class="footer-inner">
     <div>
       <a class="footer-logo" href="#">🍳 KitchenPicks<span>Pro</span></a>
-      <p>Honest kitchen product reviews and buying guides. We test products so you buy the right thing the first time.</p>
-      <p style="margin-top:1rem; font-size:0.72rem; color:#555;">As an Amazon Associate I earn from qualifying purchases. This means if you click a link and buy, I may earn a small commission at no extra cost to you.</p>
+      <p style="font-size:0.85rem;line-height:1.7;">Honest kitchen product reviews and buying guides. We test products so you buy the right thing the first time.</p>
+      <p style="margin-top:1rem;font-size:0.72rem;color:#555;">As an Amazon Associate I earn from qualifying purchases. This means if you click a link and buy, I may earn a small commission at no extra cost to you.</p>
     </div>
     <div class="footer-col"><h4>Categories</h4><a href="#">Air Fryers</a><a href="#">Coffee Makers</a><a href="#">Knives</a><a href="#">Food Storage</a><a href="#">Cleaning</a></div>
     <div class="footer-col"><h4>Pages</h4><a href="#">About</a><a href="#">Contact</a><a href="#">Privacy Policy</a><a href="#">Affiliate Disclosure</a></div>
@@ -219,26 +195,282 @@
 </div>
 <script>
 const posts = {
-  airfryer: { cat: "Air Fryers · Buying Guide · 7 min read", title: "5 Best Air Fryers Under $100 — Tested & Ranked", meta: "By Abhinav · March 2024 · 2.4k views", intro: "Air fryers are one of the top-selling kitchen products on Amazon every single month. But with so many options, picking the right one is confusing. I tested 5 of the most popular models and here's my honest verdict.", products: [{ emoji: "🥇", name: "Cosori Pro Air Fryer 5.8QT", desc: "Best overall — crispy results, easy to clean, large capacity", price: "~$89", link: "https://amzn.to/4lR560h" },{ emoji: "🥈", name: "Ninja AF101 Air Fryer", desc: "Best for small families — compact, powerful, reliable brand", price: "~$79", link: "https://amzn.to/3P4DuIH" },{ emoji: "🥉", name: "Instant Vortex 4QT", desc: "Best budget pick — surprisingly good for the price", price: "~$49", link: "https://amzn.to/4uz4NLa" }], outro: "All three are available on Amazon with free Prime shipping. My top recommendation is the Cosori — it's the one I personally use every day." },
-  coffee: { cat: "Coffee Makers · 5 min read", title: "Best Coffee Makers Under $50 for Home Use", meta: "By Abhinav · March 2024 · 1.8k views", intro: "A good cup of coffee doesn't require a $300 machine. These coffee makers deliver great results every morning and all cost under $50 on Amazon.", products: [{ emoji: "☕", name: "BLACK+DECKER 12-Cup Coffee Maker", desc: "Best value — reliable, simple, makes great coffee every time", price: "~$29", link: "https://amazon.com" },{ emoji: "☕", name: "Hamilton Beach 2-Way Brewer", desc: "Best versatility — brews full pot OR single cup", price: "~$44", link: "https://amazon.com" },{ emoji: "☕", name: "Hario V60 Pour Over Kit", desc: "Best for coffee lovers — manual but produces amazing flavour", price: "~$35", link: "https://amazon.com" }], outro: "Coffee makers are a monthly repurchase item — once people find one they love, they buy accessories, pods, and filters regularly." },
-  storage: { cat: "Food Storage · 4 min read", title: "10 Best Food Storage Containers for Meal Prep", meta: "By Abhinav · February 2024 · 1.5k views", intro: "Good food storage containers save you money by keeping food fresh longer. These are the most bought and highest rated options on Amazon right now.", products: [{ emoji: "📦", name: "Rubbermaid Brilliance Container Set", desc: "Best overall — leak-proof, crystal clear, stack perfectly", price: "~$35", link: "https://amazon.com" },{ emoji: "📦", name: "Prep Naturals Glass Containers", desc: "Best glass option — oven safe, great for meal prep", price: "~$28", link: "https://amazon.com" },{ emoji: "📦", name: "Bentgo Glass Lunch Containers", desc: "Best for portion control — divided sections, very popular", price: "~$32", link: "https://amazon.com" }], outro: "Food storage containers are a repeat purchase. People buy them, lose lids, need more sizes, or upgrade. Perfect for ongoing affiliate commissions." },
-  knives: { cat: "Knives · 6 min read", title: "Best Budget Knife Sets That Actually Stay Sharp", meta: "By Abhinav · February 2024 · 1.1k views", intro: "A sharp knife is the most important tool in any kitchen. These budget knife sets on Amazon get the job done without the premium price tag.", products: [{ emoji: "🔪", name: "Victorinox Fibrox Pro Chef's Knife", desc: "Best single knife — used by professional chefs, incredibly sharp", price: "~$40", link: "https://amazon.com" },{ emoji: "🔪", name: "Cuisinart 15-Piece Knife Set", desc: "Best full set — everything you need, comes with block", price: "~$35", link: "https://amazon.com" },{ emoji: "🔪", name: "KitchenAid Classic Knife Set", desc: "Best for beginners — comfortable grip, dishwasher safe", price: "~$30", link: "https://amazon.com" }], outro: "Knife sharpeners, cutting boards, and knife blocks are all great related products to review and link alongside knife sets." },
-  cleaning: { cat: "Cleaning · 3 min read", title: "Best Kitchen Cleaning Products on Amazon in 2024", meta: "By Abhinav · January 2024 · 980 views", intro: "These are the kitchen cleaning products I personally buy every month. All highly rated, all affordable, all available on Amazon with fast shipping.", products: [{ emoji: "🧽", name: "Scotch-Brite Heavy Duty Sponges (9-pack)", desc: "Best sponges — everyone buys these monthly, top Amazon seller", price: "~$8", link: "https://amazon.com" },{ emoji: "🧴", name: "Dawn Platinum Dish Soap (3-pack)", desc: "Best dish soap — cuts grease, concentrated formula, great value", price: "~$12", link: "https://amazon.com" },{ emoji: "✨", name: "Bar Keepers Friend Powder Cleanser", desc: "Best for tough stains — works on everything, cult favourite", price: "~$6", link: "https://amazon.com" }], outro: "Cleaning products are the ultimate recurring purchase. People buy them every single month — making this one of the best categories for steady affiliate income." },
-  blender: { cat: "Appliances · 5 min read", title: "5 Best Blenders Under $50 — Smooth Every Time", meta: "By Abhinav · January 2024 · 1.3k views", intro: "You don't need a Vitamix to make great smoothies. These blenders under $50 on Amazon handle everything from protein shakes to soups without breaking down.", products: [{ emoji: "🥤", name: "NutriBullet Personal Blender", desc: "Best personal blender — fast, compact, perfect for smoothies", price: "~$49", link: "https://amazon.com" },{ emoji: "🥤", name: "Hamilton Beach Power Elite Blender", desc: "Best full-size pick — 700 watts, 12-function, ice crushing", price: "~$35", link: "https://amazon.com" },{ emoji: "🥤", name: "Ninja BN301 Nutri-Blender", desc: "Best Ninja budget option — powerful, easy to clean", price: "~$49", link: "https://amazon.com" }], outro: "Blenders have great related products — protein powder, replacement cups, recipe books. All good affiliate opportunities." },
-  gadgets: { cat: "Gadgets · 4 min read", title: "10 Kitchen Gadgets Under $20 Worth Every Penny", meta: "By Abhinav · December 2023 · 2.1k views", intro: "These small kitchen gadgets make a surprisingly big difference in the kitchen. All under $20, all available on Amazon, all highly rated.", products: [{ emoji: "🛠️", name: "OXO Good Grips Peeler", desc: "Best peeler — sharp, comfortable, built to last", price: "~$9", link: "https://amazon.com" },{ emoji: "🌡️", name: "ThermoPro Instant Read Thermometer", desc: "Best kitchen thermometer — know your food is perfectly cooked", price: "~$15", link: "https://amazon.com" },{ emoji: "🧄", name: "Zulay Kitchen Garlic Press", desc: "Best garlic press — no more smelly hands, easy to clean", price: "~$12", link: "https://amazon.com" }], outro: "Gadget roundup articles are some of the highest traffic articles on the internet. People love discovering small tools they didn't know existed." }
+  airfryer: {
+    cat: "Air Fryers · Buying Guide · 7 min read", title: "3 Best Air Fryers Under $100 — Tested & Ranked",
+    meta: "By Abhinav · March 2024 · 2.4k views", overallStars: "★★★★★",
+    intro: "Air fryers are one of the top-selling kitchen products on Amazon every month. I personally tested all 3 of these models over 4 weeks. Here's my completely honest verdict — including what each one is best for.",
+    comparison: [
+      { rank:1, name:"Cosori Pro 5.8QT", bestFor:"Best Overall", price:"~$89", rating:"4.8/5", capacity:"5.8 QT", noise:"Low" },
+      { rank:2, name:"Ninja AF101", bestFor:"Best Compact", price:"~$79", rating:"4.6/5", capacity:"4 QT", noise:"Medium" },
+      { rank:3, name:"Instant Vortex 4QT", bestFor:"Best Budget", price:"~$49", rating:"4.3/5", capacity:"4 QT", noise:"Medium" }
+    ],
+    products: [
+      { rank:1, name:"Cosori Pro Air Fryer 5.8QT", price:"~$89", stars:"★★★★★", rating:"4.8", bestFor:"Best Overall", link:"https://amazon.com",
+        desc:"The Cosori Pro is the best all-round air fryer you can buy under $100. Large capacity, easy to clean, and produces incredibly crispy results every time.",
+        pros:["Largest capacity in this price range","Very easy to clean — dishwasher safe parts","Crispy results every single time","Quiet operation compared to competitors"],
+        cons:["Slightly bulky for small kitchens","Takes a few minutes to preheat"],
+        scores:[{label:"Crispiness",val:96},{label:"Ease of Use",val:95},{label:"Value for Money",val:88},{label:"Build Quality",val:92}],
+        verdict:"My #1 recommendation. If you can afford $89, get this one." },
+      { rank:2, name:"Ninja AF101 Air Fryer", price:"~$79", stars:"★★★★½", rating:"4.6", bestFor:"Best for Small Kitchens", link:"https://amazon.com",
+        desc:"The Ninja AF101 is compact, powerful, and backed by one of the most trusted kitchen brands. Perfect if you have limited counter space.",
+        pros:["Compact size — fits anywhere","Trusted Ninja brand quality","Easy to use controls","Heats up very quickly"],
+        cons:["Smaller 4QT capacity","Slightly louder than Cosori","Basket can be tricky to clean"],
+        scores:[{label:"Crispiness",val:90},{label:"Ease of Use",val:92},{label:"Value for Money",val:85},{label:"Build Quality",val:90}],
+        verdict:"Great choice if space is limited. Ninja's reliability is hard to beat." },
+      { rank:3, name:"Instant Vortex 4QT", price:"~$49", stars:"★★★★☆", rating:"4.3", bestFor:"Best Budget Pick", link:"https://amazon.com",
+        desc:"At just $49 the Instant Vortex punches well above its price. It won't match the premium models but for the price it's genuinely impressive.",
+        pros:["Incredible value at $49","Simple one-button operation","Good results for everyday cooking","Lightweight and easy to store"],
+        cons:["Less crispy than premium models","Cheaper plastic feel","Smaller capacity limits batch cooking","No digital display"],
+        scores:[{label:"Crispiness",val:78},{label:"Ease of Use",val:88},{label:"Value for Money",val:98},{label:"Build Quality",val:72}],
+        verdict:"Best if you're on a tight budget. Surprising quality for $49." }
+    ]
+  },
+  coffee: {
+    cat: "Coffee Makers · 5 min read", title: "Best Coffee Makers Under $50 for Home Use",
+    meta: "By Abhinav · March 2024 · 1.8k views", overallStars: "★★★★☆",
+    intro: "You don't need a $300 machine for great morning coffee. I tested these 3 budget coffee makers daily for 3 weeks. Here's exactly what I found.",
+    comparison: [
+      { rank:1, name:"BLACK+DECKER 12-Cup", bestFor:"Best Overall", price:"~$29", rating:"4.7/5", capacity:"12 Cup", noise:"Low" },
+      { rank:2, name:"Hamilton Beach 2-Way", bestFor:"Most Versatile", price:"~$44", rating:"4.5/5", capacity:"12 Cup + Single", noise:"Low" },
+      { rank:3, name:"Hario V60 Pour Over", bestFor:"Best Flavour", price:"~$35", rating:"4.6/5", capacity:"1-4 Cup", noise:"Silent" }
+    ],
+    products: [
+      { rank:1, name:"BLACK+DECKER 12-Cup Coffee Maker", price:"~$29", stars:"★★★★★", rating:"4.7", bestFor:"Best Overall Value", link:"https://amazon.com",
+        desc:"The BLACK+DECKER is the most reliable budget coffee maker I've tested. Simple, consistent, and produces great coffee every morning without fuss.",
+        pros:["Incredibly affordable at $29","Reliable — works perfectly every time","Easy to use, no learning curve","Makes full 12 cups quickly"],
+        cons:["Basic design, no frills","No programmable timer on base model","Carafe could be better insulated"],
+        scores:[{label:"Coffee Quality",val:85},{label:"Ease of Use",val:98},{label:"Value for Money",val:99},{label:"Build Quality",val:80}],
+        verdict:"Best bang for buck coffee maker available. Hard to beat at $29." },
+      { rank:2, name:"Hamilton Beach 2-Way Brewer", price:"~$44", stars:"★★★★½", rating:"4.5", bestFor:"Most Versatile", link:"https://amazon.com",
+        desc:"The only coffee maker that brews a full pot AND a single cup. Perfect if different people in your home have different needs.",
+        pros:["Brews full pot OR single cup","Great for households with mixed preferences","Good coffee quality on both settings","Easy to program"],
+        cons:["Costs more than basic models","Single serve side slightly slower","Bulkier than single-function makers"],
+        scores:[{label:"Coffee Quality",val:84},{label:"Ease of Use",val:88},{label:"Value for Money",val:86},{label:"Build Quality",val:84}],
+        verdict:"Best choice for households where some want a full pot and others want one cup." },
+      { rank:3, name:"Hario V60 Pour Over Kit", price:"~$35", stars:"★★★★★", rating:"4.6", bestFor:"Best Coffee Flavour", link:"https://amazon.com",
+        desc:"If you care about coffee flavour above everything else, the Hario V60 is unbeatable. Manual brewing extracts maximum flavour from your beans.",
+        pros:["Best flavour of any option here","Simple and beautiful design","No electricity needed","Beloved by coffee enthusiasts worldwide"],
+        cons:["Manual — takes 4-5 minutes to brew","Requires some technique to master","Only makes 1-4 cups at a time","Need to buy filters separately"],
+        scores:[{label:"Coffee Quality",val:98},{label:"Ease of Use",val:60},{label:"Value for Money",val:88},{label:"Build Quality",val:92}],
+        verdict:"For the best tasting coffee at home. Needs patience but totally worth it." }
+    ]
+  },
+  storage: {
+    cat: "Food Storage · 4 min read", title: "Best Food Storage Containers for Meal Prep",
+    meta: "By Abhinav · February 2024 · 1.5k views", overallStars: "★★★★★",
+    intro: "Good food storage containers save you money by keeping food fresh longer. I've been using all 3 of these sets for meal prep every week. Here's what works and what doesn't.",
+    comparison: [
+      { rank:1, name:"Rubbermaid Brilliance", bestFor:"Best Overall", price:"~$35", rating:"4.9/5", capacity:"Various", noise:"N/A" },
+      { rank:2, name:"Prep Naturals Glass", bestFor:"Best Glass", price:"~$28", rating:"4.6/5", capacity:"Various", noise:"N/A" },
+      { rank:3, name:"Bentgo Glass Lunch", bestFor:"Best Portion Control", price:"~$32", rating:"4.5/5", capacity:"Divided", noise:"N/A" }
+    ],
+    products: [
+      { rank:1, name:"Rubbermaid Brilliance Container Set", price:"~$35", stars:"★★★★★", rating:"4.9", bestFor:"Best Overall", link:"https://amazon.com",
+        desc:"The Rubbermaid Brilliance is the best food storage container I've ever used. Crystal clear, 100% leak proof, and stacks perfectly in any fridge.",
+        pros:["Completely leak-proof — no spills ever","Crystal clear so you can see contents","Stacks perfectly, saves fridge space","Dishwasher, microwave & freezer safe"],
+        cons:["Plastic (not glass)","Slightly pricier than basic options","Lids can be stiff at first"],
+        scores:[{label:"Leak Proof",val:99},{label:"Durability",val:95},{label:"Value for Money",val:88},{label:"Stackability",val:97}],
+        verdict:"The best food storage container money can buy at this price. I buy these for everyone I know." },
+      { rank:2, name:"Prep Naturals Glass Containers", price:"~$28", stars:"★★★★½", rating:"4.6", bestFor:"Best Glass Option", link:"https://amazon.com",
+        desc:"If you prefer glass over plastic, Prep Naturals is the best glass option. Oven safe, great for meal prep and reheating directly in the container.",
+        pros:["Glass — no plastic taste or smell","Oven safe up to 400°F","Great for reheating meals","Eco-friendly and long lasting"],
+        cons:["Heavier than plastic options","Can break if dropped","Takes up more fridge space","Lids are plastic not glass"],
+        scores:[{label:"Leak Proof",val:88},{label:"Durability",val:82},{label:"Value for Money",val:90},{label:"Stackability",val:80}],
+        verdict:"Best if you want glass containers. Oven-safe feature is a huge bonus for meal preppers." },
+      { rank:3, name:"Bentgo Glass Lunch Containers", price:"~$32", stars:"★★★★☆", rating:"4.5", bestFor:"Best for Portion Control", link:"https://amazon.com",
+        desc:"Bentgo's divided glass containers are perfect for portion-controlled meal prep. Keep different foods separate without needing multiple containers.",
+        pros:["Divided sections keep foods separate","Perfect portion sizes for meal prep","Glass quality feels premium","Tight fitting lids"],
+        cons:["Divided sections limit flexibility","Can't use for soups or liquids","Slightly harder to clean dividers","More expensive per container"],
+        scores:[{label:"Leak Proof",val:85},{label:"Durability",val:88},{label:"Value for Money",val:82},{label:"Stackability",val:78}],
+        verdict:"Perfect for meal preppers who want portion control. The divided sections are genuinely useful." }
+    ]
+  },
+  knives: {
+    cat: "Knives · 6 min read", title: "Best Budget Knife Sets That Actually Stay Sharp",
+    meta: "By Abhinav · February 2024 · 1.1k views", overallStars: "★★★★☆",
+    intro: "A sharp knife is the single most important tool in any kitchen. I used all 3 of these knife sets daily for a month — chopping, slicing, dicing. Here's my honest verdict.",
+    comparison: [
+      { rank:1, name:"Victorinox Fibrox Pro", bestFor:"Best Single Knife", price:"~$40", rating:"4.9/5", capacity:"1 Knife", noise:"N/A" },
+      { rank:2, name:"Cuisinart 15-Piece Set", bestFor:"Best Full Set", price:"~$35", rating:"4.4/5", capacity:"15 Pieces", noise:"N/A" },
+      { rank:3, name:"KitchenAid Classic Set", bestFor:"Best for Beginners", price:"~$30", rating:"4.3/5", capacity:"12 Pieces", noise:"N/A" }
+    ],
+    products: [
+      { rank:1, name:"Victorinox Fibrox Pro Chef's Knife", price:"~$40", stars:"★★★★★", rating:"4.9", bestFor:"Best Single Knife", link:"https://amazon.com",
+        desc:"Used by professional chefs worldwide, the Victorinox Fibrox Pro is simply the best knife you can buy under $50. Razor sharp out of the box and holds its edge.",
+        pros:["Used by professional chefs globally","Razor sharp straight out of the box","Comfortable non-slip handle","Holds edge exceptionally well","NSF certified for commercial use"],
+        cons:["Just one knife — no set","Not dishwasher safe","Plain appearance"],
+        scores:[{label:"Sharpness",val:98},{label:"Edge Retention",val:95},{label:"Comfort",val:94},{label:"Value for Money",val:92}],
+        verdict:"The best kitchen knife you can buy at any price near $40. Professional quality." },
+      { rank:2, name:"Cuisinart 15-Piece Knife Set", price:"~$35", stars:"★★★★☆", rating:"4.4", bestFor:"Best Full Set", link:"https://amazon.com",
+        desc:"The Cuisinart set gives you every knife you'll ever need at an unbelievably low price. Great starter set for anyone setting up a new kitchen.",
+        pros:["15 pieces — everything you need","Comes with storage block","Very affordable for a full set","Decent sharpness out of the box","Good variety of knife types"],
+        cons:["Not as sharp as premium knives","Edge dulls faster than Victorinox","Handle quality is basic"],
+        scores:[{label:"Sharpness",val:78},{label:"Edge Retention",val:72},{label:"Comfort",val:80},{label:"Value for Money",val:96}],
+        verdict:"Best if you need a complete knife set on a budget. Unbeatable value for 15 pieces." },
+      { rank:3, name:"KitchenAid Classic Knife Set", price:"~$30", stars:"★★★★☆", rating:"4.3", bestFor:"Best for Beginners", link:"https://amazon.com",
+        desc:"The KitchenAid set is the most beginner-friendly option. Comfortable handles, dishwasher safe, and looks great in any kitchen.",
+        pros:["Dishwasher safe — very convenient","Beautiful design, looks premium","Comfortable ergonomic handles","KitchenAid brand reliability"],
+        cons:["Sharpness is average","Needs frequent sharpening","Not for serious home cooks"],
+        scores:[{label:"Sharpness",val:74},{label:"Edge Retention",val:70},{label:"Comfort",val:90},{label:"Value for Money",val:88}],
+        verdict:"Best for beginners who want easy maintenance. Dishwasher safe is a real convenience." }
+    ]
+  },
+  cleaning: {
+    cat: "Cleaning · 3 min read", title: "Best Kitchen Cleaning Products on Amazon 2024",
+    meta: "By Abhinav · January 2024 · 980 views", overallStars: "★★★★★",
+    intro: "These are the kitchen cleaning products I personally buy every single month. All highly rated on Amazon, all genuinely effective, and all ridiculously affordable.",
+    comparison: [
+      { rank:1, name:"Scotch-Brite Sponges 9-pack", bestFor:"Best Sponges", price:"~$8", rating:"4.8/5", capacity:"9 Pack", noise:"N/A" },
+      { rank:2, name:"Dawn Platinum Dish Soap", bestFor:"Best Dish Soap", price:"~$12", rating:"4.9/5", capacity:"3 Pack", noise:"N/A" },
+      { rank:3, name:"Bar Keepers Friend", bestFor:"Best Tough Stains", price:"~$6", rating:"4.8/5", capacity:"12oz", noise:"N/A" }
+    ],
+    products: [
+      { rank:1, name:"Scotch-Brite Heavy Duty Sponges (9-pack)", price:"~$8", stars:"★★★★★", rating:"4.8", bestFor:"Best Everyday Sponge", link:"https://amazon.com",
+        desc:"The most bought kitchen sponge on Amazon for good reason. Tough on grease, gentle on surfaces, and lasts much longer than cheap alternatives.",
+        pros:["Lasts 2-3x longer than cheap sponges","Tough scrubbing side + soft side","Doesn't scratch non-stick pans","9 pack = incredible value"],
+        cons:["Can hold odours if not dried properly","Scrubbing side wears down eventually"],
+        scores:[{label:"Cleaning Power",val:92},{label:"Durability",val:88},{label:"Value for Money",val:97},{label:"Versatility",val:94}],
+        verdict:"The only sponge worth buying. I order these every single month without fail." },
+      { rank:2, name:"Dawn Platinum Dish Soap (3-pack)", price:"~$12", stars:"★★★★★", rating:"4.9", bestFor:"Best Dish Soap", link:"https://amazon.com",
+        desc:"Dawn Platinum is the gold standard of dish soap. One small squeeze cuts through the greasiest pans effortlessly. The 3-pack lasts months.",
+        pros:["Cuts grease better than any competitor","Highly concentrated — lasts months","Works in cold water","Safe for hands with regular use","3-pack = excellent value"],
+        cons:["More expensive per bottle than generic brands","Strong scent not for everyone"],
+        scores:[{label:"Cleaning Power",val:99},{label:"Durability",val:96},{label:"Value for Money",val:90},{label:"Gentleness",val:85}],
+        verdict:"The best dish soap available. There's a reason it's the most bought dish soap on Amazon." },
+      { rank:3, name:"Bar Keepers Friend Powder Cleanser", price:"~$6", stars:"★★★★★", rating:"4.8", bestFor:"Best for Tough Stains", link:"https://amazon.com",
+        desc:"Bar Keepers Friend is a cult favourite for good reason. It removes stains that nothing else can touch — burnt-on food, rust, mineral deposits, and more.",
+        pros:["Removes stains nothing else can","Works on stainless steel, ceramic, glass","Incredibly cheap at $6","Cult favourite with millions of fans","Works on cooktops, sinks, pots"],
+        cons:["Powder form can be messy","Can scratch very delicate surfaces","Needs rinsing thoroughly"],
+        scores:[{label:"Cleaning Power",val:99},{label:"Durability",val:"N/A"},{label:"Value for Money",val:99},{label:"Versatility",val:92}],
+        verdict:"Every kitchen needs this. The most powerful cleaner at the lowest price." }
+    ]
+  },
+  blender: {
+    cat: "Appliances · 5 min read", title: "5 Best Blenders Under $50 — Smooth Every Time",
+    meta: "By Abhinav · January 2024 · 1.3k views", overallStars: "★★★★☆",
+    intro: "You don't need a Vitamix for great smoothies. I tested these 3 budget blenders for 3 weeks making smoothies, soups, and sauces. Here's what I found.",
+    comparison: [
+      { rank:1, name:"NutriBullet Personal", bestFor:"Best Personal Blender", price:"~$49", rating:"4.7/5", capacity:"24oz", noise:"Medium" },
+      { rank:2, name:"Hamilton Beach Power Elite", bestFor:"Best Full-Size", price:"~$35", rating:"4.4/5", capacity:"40oz", noise:"Loud" },
+      { rank:3, name:"Ninja BN301", bestFor:"Best Ninja Option", price:"~$49", rating:"4.5/5", capacity:"24oz", noise:"Medium" }
+    ],
+    products: [
+      { rank:1, name:"NutriBullet Personal Blender", price:"~$49", stars:"★★★★★", rating:"4.7", bestFor:"Best Personal Blender", link:"https://amazon.com",
+        desc:"The NutriBullet is the most popular personal blender in the world and for good reason. Fast, compact, powerful enough for any smoothie ingredient.",
+        pros:["Perfect for single-serve smoothies","Cup doubles as a travel mug","Very easy to clean","Compact — takes no counter space","Powerful enough for frozen fruit & ice"],
+        cons:["Small capacity — only makes 1 serving","Not great for hot liquids","Cup can leak if overfilled"],
+        scores:[{label:"Blending Power",val:88},{label:"Ease of Use",val:97},{label:"Value for Money",val:90},{label:"Noise Level",val:75}],
+        verdict:"Best personal blender available. Perfect for daily smoothies." },
+      { rank:2, name:"Hamilton Beach Power Elite Blender", price:"~$35", stars:"★★★★☆", rating:"4.4", bestFor:"Best Full-Size Pick", link:"https://amazon.com",
+        desc:"The Hamilton Beach Power Elite is the best full-size blender under $40. Large capacity, 12 blending functions, and handles ice without struggling.",
+        pros:["Large 40oz capacity — great for families","700 watts — crushes ice easily","12 blending functions","Great value at $35"],
+        cons:["Louder than personal blenders","Bulky — takes up counter space","Takes longer to clean than personal blenders"],
+        scores:[{label:"Blending Power",val:84},{label:"Ease of Use",val:82},{label:"Value for Money",val:94},{label:"Noise Level",val:60}],
+        verdict:"Best if you need to make larger batches. Unbeatable value at $35." },
+      { rank:3, name:"Ninja BN301 Nutri-Blender", price:"~$49", stars:"★★★★½", rating:"4.5", bestFor:"Best Ninja Budget Option", link:"https://amazon.com",
+        desc:"The Ninja BN301 combines Ninja's build quality with a personal blender format. More powerful than the NutriBullet with a slightly better build.",
+        pros:["Ninja brand quality and reliability","More powerful motor than NutriBullet","Easy to clean","Comes with 2 cups"],
+        cons:["Same price as NutriBullet but less portable","Slightly heavier","Cups not as travel-friendly"],
+        scores:[{label:"Blending Power",val:92},{label:"Ease of Use",val:90},{label:"Value for Money",val:86},{label:"Noise Level",val:72}],
+        verdict:"Best if you want Ninja quality in a personal blender. Slightly more powerful than NutriBullet." }
+    ]
+  }
 };
+
+function starsHtml(rating) {
+  const r = parseFloat(rating);
+  const full = Math.floor(r);
+  const half = r % 1 >= 0.5 ? 1 : 0;
+  const empty = 5 - full - half;
+  return '★'.repeat(full) + (half ? '½' : '') + '☆'.repeat(empty);
+}
+
 function openModal(key) {
   const p = posts[key];
-  document.getElementById('modal-content').innerHTML = `<div class="modal-header"><div class="post-cat">${p.cat}</div><h2>${p.title}</h2><div class="modal-meta"><span>${p.meta}</span></div></div><div class="modal-body"><p>${p.intro}</p>${p.products.map((prod,i)=>`<h3>${prod.emoji} #${i+1} — ${prod.name}</h3><p>${prod.desc}</p><div class="product-card"><div class="product-info"><div class="name">${prod.name}</div><div class="desc">${prod.desc}</div><div class="price">${prod.price} on Amazon</div></div><a href="${prod.link}" target="_blank" class="btn" style="white-space:nowrap;font-size:0.78rem;">View on Amazon →</a></div>`).join('')}<p style="margin-top:1.5rem;">${p.outro}</p><p style="font-size:0.78rem;color:#aaa;margin-top:1rem;">⚠️ <em>As an Amazon Associate I earn from qualifying purchases.</em></p></div>`;
+  const compRows = p.comparison.map(c => {
+    const colors = ['#f0a500','#999','#c87533'];
+    return `<tr>
+      <td><span class="rank-badge rank-${c.rank}" style="background:${colors[c.rank-1]}">${c.rank}</span></td>
+      <td><strong>${c.name}</strong></td>
+      <td><span class="best-for-tag">${c.bestFor}</span></td>
+      <td style="color:var(--accent);font-weight:600;">${c.price}</td>
+      <td style="color:var(--gold);">★ ${c.rating}</td>
+    </tr>`;
+  }).join('');
+
+  const productCards = p.products.map(prod => {
+    const colors = ['#f0a500','#999','#c87533'];
+    const scoreBars = prod.scores.map(s => {
+      if(s.val === 'N/A') return '';
+      return `<div class="score-bar-wrap">
+        <div class="score-label"><span>${s.label}</span><span>${s.val}/100</span></div>
+        <div class="score-bar"><div class="score-fill ${s.val>=90?'green':''}" style="width:${s.val}%"></div></div>
+      </div>`;
+    }).join('');
+
+    const prosLi = prod.pros.map(p => `<li>${p}</li>`).join('');
+    const consLi = prod.cons.map(c => `<li>${c}</li>`).join('');
+
+    return `<div class="product-review-card">
+      <div class="product-review-header">
+        <div class="left">
+          <div class="product-rank" style="background:${colors[prod.rank-1]}">${prod.rank}</div>
+          <div>
+            <div class="stars-row">${prod.stars} <span style="color:var(--muted);font-size:0.78rem;">${prod.rating}/5</span></div>
+            <h3>${prod.name}</h3>
+            <div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;margin-top:0.3rem;">
+              <span class="price" style="color:var(--accent);font-weight:600;font-size:0.85rem;">${prod.price} on Amazon</span>
+              <span class="best-for-tag">${prod.bestFor}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="product-review-body">
+        <p style="font-size:0.9rem;color:#555;line-height:1.7;margin-bottom:1rem;">${prod.desc}</p>
+        <div class="pros-cons">
+          <div class="pros"><h4>✓ Pros</h4><ul>${prosLi}</ul></div>
+          <div class="cons"><h4>✗ Cons</h4><ul>${consLi}</ul></div>
+        </div>
+        <div style="margin-top:1rem;">${scoreBars}</div>
+      </div>
+      <div class="product-review-footer">
+        <span class="verdict">"${prod.verdict}"</span>
+        <a href="${prod.link}" target="_blank" class="btn btn-sm">View on Amazon →</a>
+      </div>
+    </div>`;
+  }).join('');
+
+  document.getElementById('modal-content').innerHTML = `
+    <div class="modal-header">
+      <div class="post-cat">${p.cat}</div>
+      <h2>${p.title}</h2>
+      <div class="modal-meta">
+        <span>${p.meta}</span>
+        <span class="modal-stars">${p.overallStars}</span>
+      </div>
+    </div>
+    <div class="modal-body">
+      <p>${p.intro}</p>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;margin:1.5rem 0 1rem;">📊 Quick Comparison Table</h3>
+      <table class="comparison-table">
+        <thead><tr><th>#</th><th>Product</th><th>Best For</th><th>Price</th><th>Rating</th></tr></thead>
+        <tbody>${compRows}</tbody>
+      </table>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;margin:1.5rem 0 1rem;">🔍 Detailed Reviews</h3>
+      ${productCards}
+      <p style="font-size:0.78rem;color:#aaa;margin-top:1.5rem;">⚠️ <em>As an Amazon Associate I earn from qualifying purchases at no extra cost to you.</em></p>
+    </div>`;
+
   document.getElementById('modal').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
+
 function closeModal() { document.getElementById('modal').classList.remove('open'); document.body.style.overflow = ''; }
 function closeOutside(e) { if (e.target === document.getElementById('modal')) closeModal(); }
 function subscribe() {
   const input = document.getElementById('emailInput');
   if (input.value && input.value.includes('@')) { input.value = ''; input.placeholder = '✓ Subscribed! Thank you.'; setTimeout(()=>input.placeholder='your@email.com',3000); }
-  else { input.style.borderColor='var(--accent)'; input.placeholder='Please enter a valid email'; setTimeout(()=>{input.style.borderColor='';input.placeholder='your@email.com';},2500); }
+  else { input.style.borderColor='var(--accent)'; input.placeholder='Please enter a valid email'; setTimeout(()=>{ input.style.borderColor=''; input.placeholder='your@email.com'; },2500); }
 }
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 </script>
